@@ -1,0 +1,69 @@
+*******************************************************************************************************************
+
+
+DELETE FROM world.word where id > 212;
+DELETE FROM world.wordmapping where id > 636;
+
+SELECT * FROM world.word where id > 205;
+
+SELECT * FROM world.wordmapping WHERE wordid IN (209,224);
+
+
+
+
+
+
+*******************************************************************************************************************
+
+C:\Program Files\MySQL\MySQL Server 5.6\bin>mysqldump --host localhost --port 3306 --u root -p  world > Z:\Server\backup\world_07012014bkp.sql
+#From Query Workbench
+CREATE DATABASE [foo];
+
+#Show all current grants to users
+SELECT User,Host FROM mysql.user;
+
+#Grant remote access to root on different IP address
+GRANT ALL ON [foo].* TO root@'[202.54.10.20]' IDENTIFIED BY '[PASSWORD]';
+GRANT ALL ON *.* TO root@'64.31.35.128' IDENTIFIED BY 'collectmednet';
+
+# Backing up the database
+C:\Program Files\MySQL\MySQL Server 5.1\bin>mysqldump --host localhost --port 3306 --u root -p  paclient_1084 > Z:\Server\backup\paclient_1084_05132012bkp.sql
+Enter password: *************
+
+C:\Program Files\MySQL\MySQL Server 5.1\bin>mysqldump --host localhost --port 3306 --u root -p  pa_master > Z:\Server\backup\pa_master_05132012bkp.sql
+Enter password: *************
+
+
+
+
+#restoring the database the database must already exist.
+C:\Program Files\MySQL\MySQL Server 5.6\bin>mysql -u root --port 3307 -p world < C:\Temp\world_w.sql
+Enter password: *************
+
+
+
+
+mysql -u root -p pa_master < E:\bkp\Server\backup\pa_master_05132012bkp.sql
+mysql -u root -p paclient_1084 < E:\bkp\Server\backup\paclient_1084_05132012bkp.sql
+
+
+*******************************************************************************************************************
+
+MYSQL server needs this in C:\Program Files\MySQL\MySQL Server 5.6\my.ini
+
+
+
+[client]
+default-character-set=utf8
+
+[mysql]
+default-character-set=utf8
+
+
+[mysqld]
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES 
+collation-server = utf8_unicode_ci
+init-connect='SET NAMES utf8'
+character-set-server = utf8
+
+*******************************************************************************************************************
