@@ -11,13 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lingoli.domain.User;
 
-@Repository
+@Repository("userDao")
 public class UserDAOImpl implements UserDAOInterface {
-		
-	private SessionFactory sessionFactory;
-
+	
 	@Autowired
-	public UserDAOImpl(SessionFactory sessionFactory) {
+	private SessionFactory sessionFactory;
+	
+	public void init(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 

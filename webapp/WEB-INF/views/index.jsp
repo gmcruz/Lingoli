@@ -10,7 +10,7 @@
     </head>
     <body>
         <div align="center">
-	        <h1>Users and Passwords SHA</h1>
+	        <h1>Users</h1>
         	<table border="1">
 	        	<th>No</th>
 	        	<th>Username</th>

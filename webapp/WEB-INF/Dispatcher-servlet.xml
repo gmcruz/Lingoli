@@ -38,28 +38,14 @@
 	
 	<context:component-scan base-package="com.lingoli.controller" />
 	<context:component-scan base-package="com.lingoli.service" />
-   <!--  <context:component-scan base-package="com.lingoli.dataaccess" /> -->
+    <context:component-scan base-package="com.lingoli.dataaccess" /> 
      
     <tx:annotation-driven />
     
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>    
-        
- 	<bean id="userDao" class="com.lingoli.dataaccess.UserDAOImpl">
-	    <constructor-arg>
-	        <ref bean="sessionFactory" />
-	    </constructor-arg>
-	</bean>   
+ 
     
 </beans>
 
-
-
-
-
-
-
-
-<!--     <context:property-placeholder location="WEB-INF/properties/jdbc.properties"/>
-    <property name="password" value="${jdbc.password}"/> -->
