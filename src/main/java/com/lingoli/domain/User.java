@@ -10,8 +10,7 @@ public class User implements Serializable {
     private String password;
     private Category category;
     
-    public User() {
-    }
+    public User() {}
     
     public User(long id, String username, String password, Category category) {
         this.id = id;

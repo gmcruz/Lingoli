@@ -3,12 +3,12 @@ package com.lingoli.domain;
 import java.io.Serializable;
 
 public class Category implements Serializable {
-    private static final long serialVersionUID = 5658716793957904104L;
+ 
+	private static final long serialVersionUID = 5658716793957904104L;
     private int id;
     private String name;
     
-    public Category() {
-    }
+    public Category() {}
     
     public Category(int id, String name) {
         this.id = id;
