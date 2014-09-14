@@ -27,4 +27,10 @@ public class Category implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+    
+    public String toString(){
+		String str = "Category Obj - id: " + getId() + " " + " name: " + getName();			
+		return str;  
+	}
+    
 }
