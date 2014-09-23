@@ -21,7 +21,6 @@ public class UserDAOImpl implements UserDAOInterface {
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
 	@Transactional
 	public List<User> list() {
 		@SuppressWarnings("unchecked")

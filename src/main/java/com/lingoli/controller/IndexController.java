@@ -22,6 +22,9 @@ public class IndexController {
 		List<User> listUsers = userDao.list();
 		ModelAndView model = new ModelAndView("index");
 		model.addObject("userList", listUsers);
+		
+		
+		
 		return model;
 	}
 	

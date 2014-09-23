@@ -9,6 +9,10 @@
 
   <name>Lingoli</name>
   <url>http://127.0.0.1/</url>
+  
+  <properties>
+	<warFinalDirectory>C:\glassfish4\glassfish\domains\domain1\autodeploy\</warFinalDirectory>
+  </properties>
 
   <build>   
     <finalName>Lingoli</finalName>
@@ -32,8 +36,28 @@
 						<directory>src\main\webapp</directory>
 					</resource>
 				</webResources>
-				<outputDirectory>C:\glassfish4\glassfish\domains\domain1\autodeploy\</outputDirectory>
+				<!-- <outputDirectory>${warFinalDirectory}</outputDirectory> -->
 			</configuration>
+		</plugin>
+		<plugin>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>copy_package</id>
+					<phase>install</phase>
+					<goals>
+						<goal>run</goal>
+					</goals>
+					<configuration>
+						<tasks>
+							
+							<copy file="target/${project.build.finalName}.war" todir="C:/apache-tomcat-7.0.42/webapps" /> 
+							<copy file="target/${project.build.finalName}.war" todir="${warFinalDirectory}" />
+							 
+						</tasks>
+					</configuration>
+				</execution>
+			</executions>
 		</plugin>
     </plugins>
   </build>
